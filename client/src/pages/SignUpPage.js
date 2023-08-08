@@ -11,10 +11,10 @@ const SignUpPage = () => {
         <Header login />
         <div className="body">
           <div className="text">
-            <h1>Unlimited movies, Tv shows and more</h1>
-            <h4>Watch Anywhere, Cancel Anytime</h4>
+            <h1>Unlimited movies, TV shows, and more</h1>
+            <h4>Watch anywhere. Cancel anytime.</h4>
             <h6>
-              Ready to Watch? Enter your email to create or restart membership
+              Ready to Watch? Enter your email to create or restart your membership.
             </h6>
           </div>
           <div className="form">

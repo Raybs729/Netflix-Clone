@@ -1,13 +1,16 @@
-import React from 'react'
-import styled from 'styled-components'
-import {useNavigate} from 'react-router-dom'
+import React from 'react';
+import styled from 'styled-components';
+import {useNavigate} from 'react-router-dom';
+import logo from './images/Petflix_Logo.png';
+
+console.log(logo);
 
 const Header = (props) => {
   const navigate = useNavigate()
   return (
     <HeaderContainer>
       <div className = 'logo'>
-        <img src = 'https://res.cloudinary.com/ehizeex-shop/image/upload/v1668265433/NetflixApp/2560px-Netflix_2015_logo.svg_rbicwl_knwp6f.png' alt = 'no internet connection'/>
+        <img src = {logo} alt = 'no image found'/>
       </div>
       <button onClick = {()=> navigate(props.login ? '/login' : '/signup')}>
         {props.login ? 'Login In ' : 'Sign In'} 
@@ -23,8 +26,10 @@ const HeaderContainer = styled.div`
   padding: 0 3rem;
   .logo{
     img{
-      height: 3rem;
+      height: 5rem;
       cursor: pointer;
+      margin-left: -2.5rem;
+      
     }
   }
   button{
