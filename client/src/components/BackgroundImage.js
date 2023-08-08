@@ -13,10 +13,10 @@ const BackgroundImage = () => {
 };
 
 const BackgroundContainer = styled.div`
-  height: 100vh;
+  height: 90vh;
   width: 100vw;
   img {
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
   }
 `; //whole of css will be written in between template literals
