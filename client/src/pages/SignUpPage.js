@@ -1,11 +1,32 @@
+//below are imports from external libraries
 import React, { useState } from "react";
+import styled from "styled-components";
+import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+
+//below are imports I implemented 
+import {firebaseAuth} from "../utils/Firebase-config";
 import Header from "../components/Header";
 import BackgroundImage from "../components/BackgroundImage";
-import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [formValues, setFormValues] = useState ({email: "", password: ""}) //*inital state of email field should be empty and same for password (stops password field from showing data already)
 
-  const [showPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate();
+
+  const handleSignIn = async() => {
+    try{
+      const {email, password} = formValues;
+      await createUserWithEmailAndPassword(firebaseAuth, email, password) //createUser... is coming from firebase/auth
+    } catch(error) {
+      console.log(error)
+    }
+  }
+
+  onAuthStateChanged(firebaseAuth,(currentUser)=> { //this will check current user that signed in and once they sign in it will redirect user to homepage
+    if(currentUser) navigate('/') //this indicates the current user will be redirected to homepage
+  })
 
   return (
     <Container>
@@ -22,10 +43,14 @@ const SignUpPage = () => {
           </div>
           <div className="form">
             {
-              showPassword ? (<input type="password" placeholder="password" name="password" />) : (<input type="email" placeholder="email address" name="email" />)
+              showPassword ? (<input type="password" placeholder="password" name="password" value={formValues.password} onChange={(e)=>setFormValues({
+                ...formValues, [e.target.name]: e.target.value})}/>) : //this will grab whatever password user inputs into the input field
+              
+              (<input type="email" placeholder="email address" name="email" value={formValues.email} onChange={(e)=>setFormValues({
+                ...formValues, [e.target.name]: e.target.value})}/>)
             }
             {
-              !showPassword ? (<button onClick = {() => setShowPassword(true)}>Get Started</button>) : (<button>Sign Up</button>)
+              !showPassword ? (<button onClick = {() => setShowPassword(true)}>Get Started</button>) : (<button onClick={handleSignIn}>Sign Up</button>) //I need to call the handle signup function when the sign in button is clicked.
             }
 
           </div>
@@ -70,7 +95,9 @@ const Container = styled.div`
     .form{
       display: grid;
       width: 60%;
-      grid-template-columns: ${({showPassword})=>showPassword ? "1fr 1fr" : "2fr 1fr"} ;
+      align-items: center;
+      margin-left: 10rem;
+      grid-template-columns: ${({showPassword})=>showPassword ? "1fr 1fr" : "1fr 1fr"} ;
       input{
         color: black;
         padding: 1.5rem;
@@ -87,6 +114,7 @@ const Container = styled.div`
         cursor: pointer;
         color: white;
         font-size: 1.05rem;
+        height: 4.6rem;
         width: 10rem;
       }
     }

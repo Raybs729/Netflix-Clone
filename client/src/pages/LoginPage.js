@@ -15,8 +15,8 @@ const LoginPage = () => {
               <h1>Login</h1>
             </div>
             <div className="container">
-              <input type="text" placeholder="email" />
-              <input type="password" placeholder="password" />
+              <input type="text" placeholder="email" title="Don't put in real email!"/>
+              <input type="password" placeholder="password" title="Don't put in real password!"/>
               <button>Login</button>
             </div>
           </div>
@@ -32,7 +32,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 110vh;
     width: 100vw;
     grid-template-columns: 15vh 85vh;
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        background-color: #000000b0;
+        background-color: rgba(0, 0, 0, 0.83);
         height: 70vh;
         padding: 2rem;
         color: white;
@@ -64,8 +64,9 @@ const Wrapper = styled.div`
                 border-radius: 0.4rem;
                 padding: 0.5rem 1rem;
                 width: 25rem;
-                height: 3.4rem;
+                height: 2.4rem;
                 outline: none;
+                font-size: 1.2rem;
             }
             button{
                 padding: 0.5rem;
