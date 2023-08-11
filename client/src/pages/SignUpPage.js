@@ -7,13 +7,13 @@ import { createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/aut
 import {firebaseAuth} from "../utils/Firebase-config";
 import Header from "../components/Header";
 import BackgroundImage from "../components/BackgroundImage";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [formValues, setFormValues] = useState ({email: "", password: ""}) //*inital state of email field should be empty and same for password (stops password field from showing data already)
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSignIn = async() => {
     try{
@@ -24,9 +24,9 @@ const SignUpPage = () => {
     }
   }
 
-  onAuthStateChanged(firebaseAuth,(currentUser)=> { //this will check current user that signed in and once they sign in it will redirect user to homepage
-    if(currentUser) navigate('/') //this indicates the current user will be redirected to homepage
-  })
+  // onAuthStateChanged(firebaseAuth,(currentUser)=> { //this will check current user that signed in and once they sign in it will redirect user to homepage
+  //   if(currentUser) navigate('/') //this indicates the current user will be redirected to homepage
+  // })
 
   return (
     <Container>
