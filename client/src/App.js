@@ -21,7 +21,6 @@ function App() {
         <Route exact path="/tv" element={<TvShow />} />
         <Route exact path="/" element={<Netflix />} />
         <Route exact path="/movie" element={<MoviePage />} />
-        <Route exact path="/login" element={<LoginPage />} />
       </Routes>
       <Header/>
     </BrowserRouter>
