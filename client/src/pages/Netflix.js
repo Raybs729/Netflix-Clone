@@ -10,6 +10,8 @@ const Netflix = () => {
       return () => (window.onscroll = null)
   }
   console.log(isScrolled)
+
+  //images displayed in the background
   return (
     <div className='Hero'>
       <TopNav isScrolled = {isScrolled}/>

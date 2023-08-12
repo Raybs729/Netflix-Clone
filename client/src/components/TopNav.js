@@ -4,12 +4,11 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Logo from "./images/Petflix_Logo.png"; //changed from server image to local image
 //isScrolled now takes the information from netflix.js
+
+/*this will all display at the top like tab buttons*/
 const TopNav = ({ isScrolled }) => {
   const navLinks = [
     { name: "Home", link: "/" },
-    {
-      /*this will all display at the top like tab buttons*/
-    },
     { name: "Tv Show", link: "/tv" },
     { name: "My List", link: "/mylist" },
     { name: "Movies", link: "/movies" },
@@ -48,9 +47,10 @@ const NavContainer = styled.div`
     .notScroll{
         display: flex;
     }
+    /*when scroll is above zero this is triggered and will show a black dropdown bar UI*/
     .scrolled{
         display: flex;
-        background-color: black; {/*when scroll is above zero this is triggered and will show a black dropdown bar UI*/}
+        background-color: black; 
     }
     nav{
         position: sticky;
@@ -64,7 +64,29 @@ const NavContainer = styled.div`
         align-items: center;
         transition : 0.3s ease-in-out;
         .leftSide{
-            
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .logo{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            width: 10rem;
+            height: 2rem;
+        }
+    }
+    .links{
+        display: flex;
+        list-style-type: none;
+        gap: 3rem;
+        li{
+            a{
+                color: white;
+                text-decoration: none;
+            }
         }
     }
 `;
