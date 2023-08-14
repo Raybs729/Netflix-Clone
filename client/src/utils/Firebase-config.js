@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import {getAuth} from 'firebase/auth'
 //import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
+// todo: Add SDKs for Firebase products that you want to use
 
 const firebaseConfig = {
   apiKey: "AIzaSyAspaVMswvFtRz5kKyc0JzAwDe6m3-dXnk",
@@ -20,4 +20,4 @@ const app = initializeApp(firebaseConfig);
 
 export const firebaseAuth = getAuth(app); //this add authentication to project
 
-//*Sucessfully linked project to Firebase
+//*Successfully linked project to Firebase
