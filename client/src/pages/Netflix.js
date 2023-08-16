@@ -1,11 +1,17 @@
+//=this is import from library
 import React, { useState } from "react";
-import TopNav from "../components/TopNav";
 import styled from "styled-components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+
+//=import from own component
+import TopNav from "../components/TopNav";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false); // ?the initial state of webpage is false since user has not moved up or down (greater than zero will set it to TRUE)
+
+  const navigate = useNavigate()
 
   //?below is windows scroll listener. it listens for the onscroll event
   window.onscroll = () => {
@@ -36,7 +42,7 @@ const Netflix = () => {
             </p>
           </div>
           <div className="buttons">
-            <button className="playBtn">Play</button>
+            <button onClick={()=> navigate ('/player')} className="playBtn">Play</button>{/*#onclick it navigates to component player (see App.js line 20)*/}
             <button className="moreBtn">More</button>
           </div>
         </div>
