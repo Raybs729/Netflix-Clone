@@ -6,6 +6,8 @@ import Logo from "./images/Petflix_Logo.png"; //changed from server image to loc
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../utils/Firebase-config";
 
+
+
 //isScrolled now takes the information from netflix.js
 /*this will all display at the top like tab buttons*/
 //?isScrolled is recieved from Netflix.js and destructers it
@@ -80,6 +82,7 @@ const NavContainer = styled.div`
       display: flex;
       align-items: center;
       gap: 2rem;
+      margin-left: 5rem;
 
       .logo {
         display: flex;
@@ -108,6 +111,7 @@ const NavContainer = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-right: 1rem;
     button {
       background-color: red;
       border: none;
