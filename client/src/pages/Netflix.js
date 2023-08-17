@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Card from "../components/Card";
 
 //=import from own component
 import TopNav from "../components/TopNav";
@@ -47,7 +48,9 @@ const Netflix = () => {
           </div>
         </div>
       </div>
+          <Card />
     </HeroContainer>
+    
   );
 };
 
