@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import {useNavigate} from 'react-router-dom';
-import logo from './images/Petflix_Logo.png';
+import logo from '../components/assets/Petflix_Logo.png';
 
 console.log(logo);
 

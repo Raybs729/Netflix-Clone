@@ -2,7 +2,7 @@ import React from "react";
 import { AiOutlineLogout } from "react-icons/ai";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "./images/Petflix_Logo.png"; //changed from server image to local image
+import Logo from '../components/assets/Petflix_Logo.png'; //changed from server image to local image
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { firebaseAuth } from "../utils/Firebase-config";
 

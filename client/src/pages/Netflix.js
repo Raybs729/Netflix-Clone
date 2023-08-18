@@ -8,6 +8,7 @@ import Card from "../components/Card";
 
 //=import from own component
 import TopNav from "../components/TopNav";
+import FurLockerBG from '../components/assets/FurLockerBackground.jpg';
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false); // ?the initial state of webpage is false since user has not moved up or down (greater than zero will set it to TRUE)
@@ -28,18 +29,16 @@ const Netflix = () => {
       <div className="hero">
         <TopNav isScrolled={isScrolled} />
         <img className="background-image"
-          src="https://res.cloudinary.com/ehizeex-shop/image/upload/v1668267540/NetflixApp/avengers-age-of-ultron-team-together-poster-wallpaper-1600x600-92751_84_qvwbif.jpg"
-          alt="hero image"
+          src={FurLockerBG}
+          alt="cat image"
         />{" "}
         {/*change this to ori and cook*/}
         <div className="container">
           <div className="title">
-            <h1>Super man</h1>
+            <h1>The Fur Locker</h1>
             <p>
               {" "}
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s
+              Two brothers. One bomb.
             </p>
           </div>
           <div className="buttons">
@@ -59,7 +58,8 @@ const HeroContainer = styled.div`
   .hero {
     position: relative;
     .background-image{
-      filter: brightness(40%)
+      filter: brightness(40%);
+      height: 90vh;
     }
     img {
       height: 70vh;

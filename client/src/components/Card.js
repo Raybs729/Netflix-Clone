@@ -7,6 +7,9 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { RiThumbUpFill, RiThumbDownFill } from "react-icons/ri";
 import { BiChevronDown } from "react-icons/bi";
 import { BsCheck } from "react-icons/bs";
+//! imported images and videos
+import CatLocker from '../components/assets/The_Cat_Locker.jpg'; //@FINALLLYYYYYYYY!!!! file path for images and videos used by pages must be in components folder then assets folder. Must read documentation for further clarification.
+import FurLocker from '../components/assets/TheFurLocker.mp4';
 
 const Card = () => {
   const [onHovered, setOnHovered] = useState(false);
@@ -20,7 +23,7 @@ const Card = () => {
       onMouseLeave={() => setOnHovered(false)}
     >
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU"
+        src={CatLocker}
         alt="movie poster"
         onClick={() => navigate("/player")}
       />
@@ -28,19 +31,18 @@ const Card = () => {
         <div className="hover">
           <div className="image-video-wrapper">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaCor4AIV__zuNlgGZTSr424NdUudWBQKBrA&usqp=CAU"
               alt="movie poster"
               onClick={() => navigate("/player")}
             />
             <video
-              src="https://res.cloudinary.com/ehizeex-shop/video/upload/v1668377666/NetflixApp/Action_mlw9wx.mp4"
+              src={FurLocker}
               autoPlay
               loop
               controls
             />
           </div>
           <div className="info-container">
-            <h3 className="movieName" onClick={() => navigate("/player")}>Red Notice</h3>
+            <h3 className="movieName" onClick={() => navigate("/player")}>The Fur Locker</h3>
             <div className="icons">
                 <div className="controls">
                     <IoPlayCircleSharp title="play" onClick={() => navigate ("/player")}/>
@@ -53,7 +55,7 @@ const Card = () => {
                     <BiChevronDown title="More Info"/>
                 </div>
             </div>
-            <div className="genre">
+            <div className="genres">
                 <ul>
                     <li>Action</li>
                     <li>Action</li>
@@ -69,6 +71,7 @@ const Card = () => {
 };
 
 const CardContainer = styled.div`
+margin-top: 1rem; //space for movie card and background image
   max-width: 230px;
   width: 230px;
   height: 100%;
@@ -86,7 +89,7 @@ const CardContainer = styled.div`
     height: max-content;
     width: 20rem;
     position: absolute;
-    top: -18v;
+    top: -18vh;
     left: 0;
     border-radius: 0.2rem;
     border: 0.1rem solid gray;
@@ -120,6 +123,9 @@ const CardContainer = styled.div`
         flex-direction: column;
         padding: 1rem;
         gap: 0.5rem;
+        .movieName{
+            color: white;
+        }
     }
     .icons{
         display: flex;
@@ -143,13 +149,14 @@ const CardContainer = styled.div`
     }
     .genres{
         display: flex;
+        color: white;
         ul{
             display: flex;
             gap: 1rem;
             li{
                 padding-right: 0.7rem;
                 &:first-of-type{
-                    list-style-type:
+                    list-style-type: none;
                 }
             }
         }
