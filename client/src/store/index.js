@@ -59,24 +59,27 @@ export const fetchMovies = createAsyncThunk( //this allows the websit to fetch t
     const {
       netflix: { genres },
     } = myThunk.getState();
-    const data = getMovieData(
+    return getMovieData( //now i need to add it into the state
       `${TMDB_BASE_URL}/trending/${type}/week?api_key=${MY_API_KEY}`,
       genres,
       true
     );
-    console.log(data);
+    // console.log(data);
   }
 );
 
 //!will need to change to petflix maybe?
-const NetflixSlice = createSlice({
+const NetflixSlice = createSlice({ //if anything is added within here. the code should be able to get it anywhere in application
   name: "Netflix",
   initialState,
   extraReducers: (builder) => {
     builder.addCase(getGenres.fulfilled, (state, action) => {
-      state.genres = action.payload;
-      state.genresLoaded = true;
-    });
+        state.genres = action.payload;
+        state.genresLoaded = true;
+      });
+      builder.addCase(fetchMovies.fulfilled, (state, action) => { //now should be able to communicate with movie data anywhere in application
+        state.movies = action.payload;
+      });
   },
 });
 
