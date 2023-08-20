@@ -1,19 +1,36 @@
 //=this is import from library
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { FaPlay } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
+import { useDispatch, useSelector } from "react-redux";
 
 //=import from own component
 import TopNav from "../components/TopNav";
 import FurLockerBG from '../components/assets/FurLockerBackground.jpg';
+import { fetchMovies, getGenres } from "../store";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false); // ?the initial state of webpage is false since user has not moved up or down (greater than zero will set it to TRUE)
 
   const navigate = useNavigate()
+
+  const genresLoaded = useSelector((state) => state.netflix.genresLoaded)
+
+  const dispatch = useDispatch()
+
+  useEffect(()=>{
+    dispatch(getGenres())
+  },[])//the second part in [] means it requires something to fire up
+
+//=this should fire up when component renders
+  useEffect(()=>{
+    if(genresLoaded){
+      dispatch(fetchMovies({type: "all"}))
+    }
+  })//this genreLoaded does not depend on anything to fire up
 
   //?below is windows scroll listener. it listens for the onscroll event
   window.onscroll = () => {
