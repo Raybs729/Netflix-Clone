@@ -44,7 +44,7 @@ const arrayOfMovieData = (array, moviesArray, genres) => {
 //``only want a few movies instead of whole TMDB database
 const getMovieData = async (api, genres, paging = false) => {
   const moviesArray = [];
-  for (let i = 1; moviesArray.length < 80 && i < 10; i++) {
+  for (let i = 1; moviesArray.length < 80 && i < 10; i++) { //i dont want to get more than 80 movies and more than 10 movies should populate
     const {
       data: { results },
     } = await axios.get(`${api}${paging ? `&page=${i}` : ""}`);
@@ -53,7 +53,7 @@ const getMovieData = async (api, genres, paging = false) => {
   return moviesArray;
 };
 
-export const fetchMovies = createAsyncThunk(
+export const fetchMovies = createAsyncThunk( //this allows the websit to fetch the movie accoring to trend, week of trend, and type of movie
   "netflix/trending",
   async ({ type }, myThunk) => {
     const {
