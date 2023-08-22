@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import TopNav from "../components/TopNav";
 import FurLockerBG from "../components/assets/FurLockerBackground.jpg";
 import { fetchMovies, getGenres } from "../store";
+import SliderContainer from "../components/SliderContainer";
 
 const Netflix = () => {
   const [isScrolled, setIsScrolled] = useState(false); // ?the initial state of webpage is false since user has not moved up or down (greater than zero will set it to TRUE)
@@ -40,9 +41,9 @@ const Netflix = () => {
     return () => (window.onscroll = null);
   };
 
-  console.log(movies)
+  // console.log(movies)
 
-  
+
   //images displayed in the background
   //?on line 19 isScrolled is pass as a prop.
   return (
@@ -69,7 +70,7 @@ const Netflix = () => {
           </div>
         </div>
       </div>
-      <Card />
+      <SliderContainer movies = {movies}/>
     </HeroContainer>
   );
 };

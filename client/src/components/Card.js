@@ -11,7 +11,7 @@ import { BsCheck } from "react-icons/bs";
 import CatLocker from '../components/assets/The_Cat_Locker.jpg'; //@FINALLLYYYYYYYY!!!! file path for images and videos used by pages must be in components folder then assets folder. Must read documentation for further clarification.
 import FurLocker from '../components/assets/TheFurLocker.mp4';
 
-const Card = () => {
+const Card = ({movieData}) => {
   const [onHovered, setOnHovered] = useState(false);
   const navigate = useNavigate();
   return (
@@ -23,7 +23,7 @@ const Card = () => {
       onMouseLeave={() => setOnHovered(false)}
     >
       <img
-        src={CatLocker}
+        src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
         alt="movie poster"
         onClick={() => navigate("/player")}
       />
@@ -31,6 +31,7 @@ const Card = () => {
         <div className="hover">
           <div className="image-video-wrapper">
             <img
+              src={`https://image.tmdb.org/t/p/w500${movieData.image}`}
               alt="movie poster"
               onClick={() => navigate("/player")}
             />
@@ -42,7 +43,7 @@ const Card = () => {
             />
           </div>
           <div className="info-container">
-            <h3 className="movieName" onClick={() => navigate("/player")}>The Fur Locker</h3>
+            <h3 className="movieName" onClick={() => navigate("/player")}>{movieData.name}</h3>
             <div className="icons">
                 <div className="controls">
                     <IoPlayCircleSharp title="play" onClick={() => navigate ("/player")}/>
@@ -57,10 +58,9 @@ const Card = () => {
             </div>
             <div className="genres">
                 <ul>
-                    <li>Action</li>
-                    <li>Action</li>
-                    <li>Action</li>
-                    <li>Action</li>
+                    {movieData.genres.map((genres)=>{
+                      <li>{genres}</li>
+                    })}
                 </ul>
             </div>
           </div>
@@ -77,7 +77,6 @@ margin-top: 1rem; //space for movie card and background image
   height: 100%;
   cursor: pointer;
   position: relative;
-  background-color: red;
   img{
     border-radius: 0.2rem;
     width: 100%;
