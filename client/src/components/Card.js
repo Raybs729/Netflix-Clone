@@ -11,7 +11,7 @@ import { BsCheck } from "react-icons/bs";
 import CatLocker from '../components/assets/The_Cat_Locker.jpg'; //@FINALLLYYYYYYYY!!!! file path for images and videos used by pages must be in components folder then assets folder. Must read documentation for further clarification.
 import FurLocker from '../components/assets/TheFurLocker.mp4';
 
-const Card = ({movieData}) => {
+export default React.memo(function Card  ({movieData}) {
   const [onHovered, setOnHovered] = useState(false);
   const navigate = useNavigate();
   return (
@@ -68,7 +68,7 @@ const Card = ({movieData}) => {
       )}
     </CardContainer>
   );
-};
+}) ;
 
 const CardContainer = styled.div`
 margin-top: 1rem; //space for movie card and background image
@@ -163,4 +163,3 @@ margin-top: 1rem; //space for movie card and background image
   }
 `;
 
-export default Card;
